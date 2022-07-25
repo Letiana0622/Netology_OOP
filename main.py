@@ -39,7 +39,8 @@ class Student:
         for course, grade in self.grades.items():
             grade_list_student.append(grade)
         for grade in grade_list_student:
-            grade_sum += grade
+            grade_sum = grade_sum + grade
+        # grade_sum = sum(grade_list_student)
         grade_average_student = int(grade_sum)/ int(len(grade_list_student))
         return grade_average_student
 
@@ -53,7 +54,7 @@ class Student:
         if not isinstance(other, Lecturer):
             print('Not a Lecturer!')
             return
-        return self.average_grades < other.average_grades
+        return self.average_grades() < other.average_grades()
 
 class Mentor:
     def __init__(self, name, surname):
@@ -113,6 +114,13 @@ class Reviewer(Mentor):
     def __str__(self):
         return f'Имя: {self.name}\nФамилия: {self.surname}\n'
 
+
+# Задание № 4. Полевые испытания
+# Создайте по 2 экземпляра каждого класса, вызовите все созданные методы, а также реализуйте две функции:
+# !!!для подсчета средней оценки за домашние задания по всем студентам в рамках конкретного курса
+# !!!в качестве аргументов принимаем список студентов и название курса);
+# !!!для подсчета средней оценки за лекции всех лекторов в рамках курса (
+# !!!в качестве аргумента принимаем список лекторов и название курса).
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
 best_student.finished_courses += ['Git']
